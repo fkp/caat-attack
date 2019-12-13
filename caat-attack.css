@@ -1,0 +1,43 @@
+*{
+    position: absolute;
+    font-family: arial;
+    background-repeat: no-repeat;
+}
+body{
+    margin: 00px;
+    overflow:hidden;
+    background-color:white;
+}
+#mainContainer{
+    background-color: white;
+    overflow: hidden;
+    visibility:hidden;
+    width:900px;
+    height:900px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #c6c6c6;
+}
+.hidden{
+    opacity:0;
+    visibility:hidden;
+}
+.fullImage{
+    background-size: 300px 600px;
+    width:2836px;
+    height:2000px;
+    top:-1px;
+    left:-1px;
+    opacity:0;
+    visibility:hidden;
+    z-index:1;
+}
+
+#slideContent{background-image:url("DMainsBig.png");
+    width: 2836px;
+    height:2000px;
+    bottom: 0px;
+
+    z-index: 11;
+}
