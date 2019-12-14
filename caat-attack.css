@@ -41,3 +41,11 @@ body{
 
     z-index: 11;
 }
+
+#catImg{background-image:url("cat.jpg");
+    width: 227px;
+    height:222px;
+    bottom: 0px;
+
+    z-index: 12;
+}
