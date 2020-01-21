@@ -22,10 +22,6 @@ function animate() {
     {xcoord:1686, ycoord:207},
     {xcoord:1981, ycoord:860}];
 
-  // Calculate the duration based on the distance between this coordinate and the previous
-  for (i=1; i<coords.length; i++)
-    coords[i].duration = calcDuration(coords[i].xcoord,coords[i].ycoord,coords[i-1].xcoord,coords[i-1].ycoord);
-
   panToCoords(tl, coords);
 
   // Show hazard container
@@ -46,6 +42,10 @@ function yPosition(yPx) {
 }
 
 function panToCoords(tl, coords) {
+  // Calculate the duration based on the distance between this coordinate and the previous
+  for (i=1; i<coords.length; i++)
+    coords[i].duration = calcDuration(coords[i].xcoord,coords[i].ycoord,coords[i-1].xcoord,coords[i-1].ycoord);
+
   coords.forEach(obj =>
   {
     //console.log(obj.duration + " " + obj.xcoord + " " + obj.ycoord);
