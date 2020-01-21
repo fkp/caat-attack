@@ -1,35 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-html, body {
-  margin: 0; padding: 0;
-}
-.hero-bkg-animated {
-  background: gray url(DMainsBig.png) repeat 0 0;
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  height: 300px;
-  padding-top: 120px;
-  box-sizing: border-box;
-  -webkit-animation: slide 5s linear infinite;
-}
+<html class="no-js">
+    <head>
+        <title>CAAT Attack</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        <link rel="stylesheet" type="text/css" href="caat-attack.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+ </head>
 
-.hero-bkg-animated h1 {
-  font-family: sans-serif;
-}
+    <body onload='loadedHandler()'>
+    <body>
+        <div class="catImg">&nbsp;</div>
+        <div id='mainContainer'>
+            <div id="slideContent"/>
+            <div id="endFrame" class="fullImage"/>
+			
+        </div>
 
-@-webkit-keyframes slide {
-    from { background-position: 0 0; }
-    to { background-position: -400px 0; }
-}</style>
-</head>
-<body>
-<div class="hero-bkg-animated">
-<img src="cat.jpg" alt="CAAT" height="42" width="42">
-</div>
-
-</body>
+        <script type='text/javascript' src='caat-attack.js'></script>
+    </body>
 </html>
-
