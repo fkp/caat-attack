@@ -6,7 +6,7 @@
 body{
     margin: 00px;
     overflow:hidden;
-    /*background-color:white;*/
+    background-color:white;
 }
 #mainContainer{
     background-color: white;
@@ -38,16 +38,40 @@ body{
     width: 2836px;
     height:2000px;
     bottom: 0px;
-
     z-index: 11;
 }
 
-div.catImg{background-image:url("cat.png");
+#hazardContainer{
+    position: relative
+    opacity:0;
+    visibility:hidden;
+}
+
+#hazardText{
+    position: absolute;
+    display: inline;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#hazardImg{background-image:url("Exclaim.png");
+    width: 227px;
+    height:222px;
+    bottom: -455px;
+    left: 287px;
+    background-size: 15% 15%;
+    z-index: 11;
+}
+
+#catImg{background-image:url("cat.png");
     width: 227px;
     height: 222px;
     bottom: -455px;
     left: 237px;
     background-size: 15% 15%;
-    /*background: rgba(0,0,0,0.2);*/
     z-index: 10;
 }
