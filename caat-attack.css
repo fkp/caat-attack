@@ -6,7 +6,7 @@
 body{
     margin: 00px;
     overflow:hidden;
-    background-color:white;
+    /*background-color:white;*/
 }
 #mainContainer{
     background-color: white;
@@ -42,10 +42,12 @@ body{
     z-index: 11;
 }
 
-#catImg{background-image:url("cat.jpg");
+div.catImg{background-image:url("cat.png");
     width: 227px;
-    height:222px;
-    bottom: 0px;
-
-    z-index: 12;
+    height: 222px;
+    bottom: -455px;
+    left: 237px;
+    background-size: 15% 15%;
+    /*background: rgba(0,0,0,0.2);*/
+    z-index: 10;
 }

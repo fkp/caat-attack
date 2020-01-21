@@ -12,19 +12,25 @@ function setup() {
 
 function animate() {
   TweenLite.to(["#mainContainer","#dmains","#slideContent"],0,{autoAlpha:1, x:0, y:0});
-  
-  TweenLite.to('#slideContent',0, {x:xPosition(1360), y:yPosition(267)});
-  TweenLite.to('#slideContent',5,{x:xPosition(1529), y:yPosition(251), z: 0.1,
-       rotationZ: 0.01, // use if jitter or shaking is really bad
-       ease:Linear.easeNone});
-  TweenLite.to('#slideContent',5,{x:xPosition(1686), y:yPosition(207), z: 0.1,
-       rotationZ: 0.01, // use if jitter or shaking is really bad
-       ease:Linear.easeNone,
-	   delay: 5});
-  TweenLite.to('#slideContent',5,{x:xPosition(1919), y:yPosition(707), z: 0.1,
-       rotationZ: 0.01, // use if jitter or shaking is really bad
-       ease:Linear.easeNone,
-	   delay: 10});
+
+  var tl = new TimelineMax();
+
+  // Coordinates to visit - first will have a 0 duration, we'll calculate the rest based on the distance
+  var coords = [
+    {xcoord:1360, ycoord:267, duration:0},
+    {xcoord:1529, ycoord:251},
+    {xcoord:1686, ycoord:207},
+    {xcoord:1981, ycoord:860}];
+
+  // Calculate the duration based on the distance between this coordinate and the previous
+  for (i=1; i<coords.length; i++)
+    coords[i].duration = calcDuration(coords[i].xcoord,coords[i].ycoord,coords[i-1].xcoord,coords[i-1].ycoord);
+
+  coords.forEach(obj =>
+  {
+    console.log(obj.duration + " " + obj.xcoord + " " + obj.ycoord);
+    tl.to('#slideContent',obj.duration,{x:xPosition(obj.xcoord),y:yPosition(obj.ycoord),z:0.1});
+  });
 }
 
 // x coord: -x means left of viewport is x pixels from the left of the image
@@ -35,4 +41,8 @@ function xPosition(xPx) {
 // y coord: y means bottom viewport is y pixels from the bottom of the image
 function yPosition(yPx) {
 	return 2000-yPx-250;
+}
+
+function calcDuration(x1, y1, x2, y2) {
+    return Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)) / 150;
 }
