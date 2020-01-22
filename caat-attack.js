@@ -13,6 +13,7 @@ function setup() {
 function animate() {
   TweenLite.to(["#mainContainer","#dmains","#slideContent"],0,{autoAlpha:1, x:0, y:0});
 
+  //var tl = new TimelineMax({ paused: true });
   var tl = new TimelineMax();
 
   // Coordinates to visit - first will have a 0 duration, we'll calculate the rest based on the distance
@@ -26,9 +27,10 @@ function animate() {
 
   // Show hazard container
   tl.to('#hazardContainer',0.5,{autoAlpha:1});
-  tl.to('#hazardImg',0.5,{autoAlpha:1});
-  // Set hazard text?
-  tl.to('#hazardText',0.5,{text:"Bad crossing!"});
+  // Set hazard text
+  ht = document.getElementById("hazardText");
+  ht.textContent = "Bad crossing!";
+  //tl.to('#hazardText',0.5,{text:"Bad crossing!"});
 }
 
 // x coord: -x means left of viewport is x pixels from the left of the image

@@ -37,34 +37,34 @@ body{
 #slideContent{background-image:url("DMainsBig.png");
     width: 2836px;
     height:2000px;
-    bottom: 0px;
+    bottom: 1px;
     z-index: 11;
 }
 
 #hazardContainer{
     position: relative
     opacity:0;
+    bottom: -235px;
+    left: 287px;
     visibility:hidden;
 }
 
 #hazardText{
-    position: absolute;
-    display: inline;
-    bottom: 20px;
-    right: 20px;
     background-color: black;
+    opacity:0.5;
     color: white;
-    padding-left: 20px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-right: 20px;
+    z-index: 11;
 }
 
 #hazardImg{background-image:url("Exclaim.png");
     width: 227px;
     height:222px;
-    bottom: -455px;
-    left: 287px;
     background-size: 15% 15%;
-    z-index: 11;
+    z-index: 12;
 }
 
 #catImg{background-image:url("cat.png");
