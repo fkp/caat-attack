@@ -1,77 +1,23 @@
-*{
-    position: absolute;
-    font-family: arial;
-    background-repeat: no-repeat;
-}
-body{
-    margin: 00px;
-    overflow:hidden;
-    background-color:white;
-}
-#mainContainer{
-    background-color: white;
-    overflow: hidden;
-    visibility:hidden;
-    width:500px;
-    height:500px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    border: 1px solid #c6c6c6;
-}
-.hidden{
-    opacity:0;
-    visibility:hidden;
-}
-.fullImage{
-    background-size: 300px 600px;
-    width:2836px;
-    height:2000px;
-    top:-1px;
-    left:-1px;
-    opacity:0;
-    visibility:hidden;
-    z-index:1;
-}
-
-#slideContent{background-image:url("DMainsBig.png");
-    width: 2836px;
-    height:2000px;
-    bottom: 1px;
-    z-index: 11;
-}
-
-#hazardContainer{
-    position: relative
-    opacity:0;
-    bottom: -235px;
-    left: 287px;
-    visibility:hidden;
-}
-
-#hazardText{
-    background-color: black;
-    opacity:0.5;
-    color: white;
-    padding-left: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 20px;
-    z-index: 11;
-}
-
-#hazardImg{background-image:url("Exclaim.png");
-    width: 227px;
-    height:222px;
-    background-size: 15% 15%;
-    z-index: 12;
+#fly {
+    display: block;
+    position: relative;
+    margin: 0px auto;
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #ee8a65;
 }
 
 #catImg{background-image:url("cat.png");
-    width: 227px;
+ /*   width: 227px;
     height: 222px;
     bottom: -455px;
-    left: 237px;
+    left: 237px;*/
     background-size: 15% 15%;
     z-index: 10;
 }
