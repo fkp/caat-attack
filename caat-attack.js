@@ -1,60 +1,48 @@
+mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhc2Vya3AiLCJhIjoiNjUxMjNiMTI3M2Q5YTRlYTkxMzkxNzNhNDYxNGJiMmUifQ.O5ZRm8pWtN1Ao6YNJMRF7Q';
+var start = [-3.190, 55.944];
+var end = [-3.269965, 55.967333];
+var end2 = [-3.269503, 55.967393];
+var end3 = [-3.268988, 55.967501];
+var end4 = [-3.267469, 55.965649];
 
-var cta;
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/fraserkp/ck435sshr1jp01cs4yzcjczmv',
+    center: start,
+    zoom: 11
+});
+ 
+var isAtStart = true;
+ 
+document.getElementById('fly').addEventListener('click', function() {
+    PanTo(map, end, 10);
+    setTimeout(function(){ PanTo(map, end2, 0.2) }, 3000);
+    setTimeout(function(){ PanTo(map, end3, 0.2) }, 4000);
+    setTimeout(function(){ PanTo(map, end4, 0.2) }, 5000);
 
-function loadedHandler() {
-    TweenLite.delayedCall(1, setup);
-}
+    function PanTo(map, place, speedRequired) {
 
-function setup() {
-  cta = document.getElementById("cta");
-  animate();
-}
+        map.flyTo({
+            // These options control the ending camera position: centered at
+            // the target, at zoom level 9, and north up.
+            center: place,
+            zoom: 17,
+            bearing: 0,
 
-function animate() {
-  TweenLite.to(["#mainContainer","#dmains","#slideContent"],0,{autoAlpha:1, x:0, y:0});
+            // These options control the flight curve, making it move
+            // slowly and zoom out almost completely before starting
+            // to pan.
+            speed: speedRequired,
+            curve: 1, // change the speed at which it zooms out
 
-  //var tl = new TimelineMax({ paused: true });
-  var tl = new TimelineMax();
+            // This can be any easing function: it takes a number between
+            // 0 and 1 and returns another number between 0 and 1.
+            easing: function(t) {
+                return t;
+            },
 
-  // Coordinates to visit - first will have a 0 duration, we'll calculate the rest based on the distance
-  var coords = [
-    {xcoord:1360, ycoord:267, duration:0},
-    {xcoord:1529, ycoord:251},
-    {xcoord:1686, ycoord:207},
-    {xcoord:1981, ycoord:860}];
-
-  panToCoords(tl, coords);
-
-  // Show hazard container
-  tl.to('#hazardContainer',0.5,{autoAlpha:1});
-  // Set hazard text
-  ht = document.getElementById("hazardText");
-  ht.textContent = "Bad crossing!";
-  //tl.to('#hazardText',0.5,{text:"Bad crossing!"});
-}
-
-// x coord: -x means left of viewport is x pixels from the left of the image
-function xPosition(xPx) {
-	return -xPx+250;
-}
-
-// y coord: y means bottom viewport is y pixels from the bottom of the image
-function yPosition(yPx) {
-	return 2000-yPx-250;
-}
-
-function panToCoords(tl, coords) {
-  // Calculate the duration based on the distance between this coordinate and the previous
-  for (i=1; i<coords.length; i++)
-    coords[i].duration = calcDuration(coords[i].xcoord,coords[i].ycoord,coords[i-1].xcoord,coords[i-1].ycoord);
-
-  coords.forEach(obj =>
-  {
-    //console.log(obj.duration + " " + obj.xcoord + " " + obj.ycoord);
-    tl.to('#slideContent',obj.duration,{x:xPosition(obj.xcoord),y:yPosition(obj.ycoord),z:0.1});
-  });
-}
-
-function calcDuration(x1, y1, x2, y2) {
-    return Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)) / 150;
-}
+            // this animation is considered essential with respect to prefers-reduced-motion
+            essential: true
+        });
+    }
+});
