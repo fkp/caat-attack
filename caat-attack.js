@@ -14,7 +14,7 @@ var map = new mapboxgl.Map({
  
 var isAtStart = true;
  
-document.getElementById('fly').addEventListener('click', function() {
+document.getElementById('animate').addEventListener('click', function() {
     PanTo(map, end, 10);
     setTimeout(function(){ PanTo(map, end2, 0.2) }, 3000);
     setTimeout(function(){ PanTo(map, end3, 0.2) }, 4000);
