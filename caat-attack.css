@@ -1,3 +1,17 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
 #animate {
     display: block;
     position: relative;
@@ -11,14 +25,23 @@
     text-align: center;
     color: #fff;
     background: #ee8a65;
+    z-index: 1;
+}
+
+#catParent{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
 }
 
 #catImg{background-image:url("cat.png");
-    display: block;
     position: relative;
     width: 40px;
     height: 40px;
-    margin-left: 49%;
-    margin-top: 30%;
+    margin: auto auto;
     background-size: 100% 100%;
+    z-index: 1;
 }
